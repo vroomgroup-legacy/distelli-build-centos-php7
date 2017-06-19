@@ -13,7 +13,7 @@ WORKDIR /home/distelli
 # Install prerequisites. This provides me with the essential tools for building with.
 # Note. You don't need git or mercurial.
 RUN yum -y update  \
-    && yum -y groupinstall 'Development Tools'
+    && yum -y groupinstall 'Development Tools' \
     && yum -y install git mercurial sudo \
     && yum -y install openssh-clients openssh-server \
     && yum -y install curl ca-certificates
