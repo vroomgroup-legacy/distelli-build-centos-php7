@@ -12,11 +12,11 @@ WORKDIR /home/distelli
     
 # Install prerequisites. This provides me with the essential tools for building with.
 # Note. You don't need git or mercurial.
-RUN sudo yum -y update  \
-    && sudo yum -y groupinstall 'Development Tools'
-    && sudo yum -y install git mercurial \
-    && sudo yum -y install openssh-clients openssh-server \
-    && sudo yum -y install curl ca-certificates
+RUN yum -y update  \
+    && yum -y groupinstall 'Development Tools'
+    && yum -y install git mercurial sudo \
+    && yum -y install openssh-clients openssh-server \
+    && yum -y install curl ca-certificates
 
 # Update the .ssh/known_hosts file:
 RUN sudo sh -c "ssh-keyscan -H github.com bitbucket.org >> /etc/ssh/ssh_known_hosts"
