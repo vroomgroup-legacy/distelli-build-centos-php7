@@ -14,7 +14,7 @@ WORKDIR /home/distelli
 # Note. You don't need git or mercurial.
 RUN yum -y update  \
     && yum -y groupinstall 'Development Tools' \
-    && yum -y install git mercurial sudo \
+    && yum -y install git mercurial sudo dpkg \
     && yum -y install openssh-clients openssh-server \
     && yum -y install curl ca-certificates
 
@@ -31,7 +31,7 @@ RUN sudo curl -o /bin/gosu -sSL "https://github.com/tianon/gosu/releases/downloa
 
 # Install node version manager as distelli user
 USER distelli
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+RUN cd /home/distelli && curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
 
 # Install Composer as distelli user
 
