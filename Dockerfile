@@ -12,9 +12,7 @@ WORKDIR /home/distelli
     
 # Install prerequisites. This provides me with the essential tools for building with.
 # Note. You don't need git or mercurial.
-RUN yum search dpkg
-
-RUN yum -y yum -y install epel-release \
+RUN yum -y install epel-release \
 RUN yum -y repolist
 RUN yum -y update
 RUN yum -y groupinstall 'Development Tools' \
