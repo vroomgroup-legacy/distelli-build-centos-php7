@@ -12,9 +12,13 @@ WORKDIR /home/distelli
     
 # Install prerequisites. This provides me with the essential tools for building with.
 # Note. You don't need git or mercurial.
+RUN yum search dpkg
+
 RUN yum -y update  \
     && yum -y groupinstall 'Development Tools' \
-    && yum -y install git mercurial sudo dpkg \
+    && yum -y install dpkg \
+    && yum -y install epel-release \
+    && yum -y install git mercurial sudo \
     && yum -y install openssh-clients openssh-server \
     && yum -y install curl ca-certificates
 
@@ -32,7 +36,7 @@ RUN sudo curl -o /bin/gosu -sSL "https://github.com/tianon/gosu/releases/downloa
 # Install node version manager as distelli user
 USER distelli
 WORKDIR /home/distelli
-RUN cd /home/distelli && curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash && cd /home/distelli
 
 # Install Composer as distelli user
 
