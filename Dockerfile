@@ -14,11 +14,11 @@ WORKDIR /home/distelli
 # Note. You don't need git or mercurial.
 RUN yum search dpkg
 
-RUN yum -y update  \
-    && yum -y groupinstall 'Development Tools' \
-    && yum -y install dpkg \
-    && yum -y install epel-release \
-    && yum -y install git mercurial sudo \
+RUN yum -y yum -y install epel-release \
+RUN yum -y repolist
+RUN yum -y update
+RUN yum -y groupinstall 'Development Tools' \
+    && yum -y install git mercurial sudo dpkg \
     && yum -y install openssh-clients openssh-server \
     && yum -y install curl ca-certificates
 
