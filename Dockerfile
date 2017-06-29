@@ -32,14 +32,14 @@ RUN sudo curl -o /bin/gosu -sSL "https://github.com/tianon/gosu/releases/downloa
      && sudo chmod +x /bin/gosu
 
 # Install node version manager as distelli user
-RUN touch ~/.bash_profile
 USER distelli
 RUN touch /home/distelli/.bash_profile
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | NVM_DIR=/home/distelli/.nvm bash
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | PROFILE=/home/distelli/.bash_profile NVM_DIR=/home/distelli/.nvm bash
 
 # Install Composer as distelli user
 
 # Ensure the final USER statement is "USER root"
 USER root
+RUN userdel distelli
 
 CMD ["/bin/bash"]
