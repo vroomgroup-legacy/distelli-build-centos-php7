@@ -15,7 +15,7 @@ vroomsysadmin/build-centos-php7:
   #PkgInclude:
   #  - '*'
 
-  ###Below is deployment phases   
+  ###Below is deployment phases
   
   Env:
     # Set any environment variables in this section.   
