@@ -16,9 +16,8 @@ RUN yum -y install epel-release
 RUN yum -y repolist
 RUN yum -y update
 RUN yum -y groupinstall 'Development Tools' \
-    && yum -y install git mercurial sudo dpkg nodejs nodejs-devel \
-    && yum -y install openssh-clients openssh-server \
-    && yum -y install curl ca-certificates
+    && yum -y install git mercurial sudo dpkg nodejs nodejs-devel http-parser \
+    && yum -y install openssh-clients openssh-server curl ca-certificates 
 
 # Update the .ssh/known_hosts file:
 RUN sudo sh -c "ssh-keyscan -H github.com bitbucket.org >> /etc/ssh/ssh_known_hosts"
