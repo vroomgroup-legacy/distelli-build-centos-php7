@@ -1,5 +1,5 @@
 # Ubuntu has the necessary framework to start from    
-FROM amazonlinux:latest
+FROM amazonlinux:2018.03
 
 # Run as root
 USER root
@@ -11,6 +11,7 @@ RUN yum -y groupinstall 'Development Tools' \
     && yum -y install git mercurial sudo dpkg nodejs nodejs-devel http-parser shadow-utils \
     && yum -y install openssh-clients openssh-server curl ca-certificates \
     && yum -y install php71 php71-cli php71-gd php71-mbstring php71-intl php71-pecl-imagick php71-xml php71-common php71-pdo php71-mysqlnd php71-ldap php71-mcrypt php71-enchant php71-soap php71-fpm php71-json php71-process php71-dba php71-pecl-igbinary php71-bcmath
+
  
 # Create Distelli user
 RUN /usr/sbin/useradd -ms /bin/bash distelli 
