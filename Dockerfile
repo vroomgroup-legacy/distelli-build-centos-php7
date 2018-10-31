@@ -8,7 +8,7 @@ USER root
 # Note. You don't need git or mercurial.
 RUN yum -y update
 RUN yum -y groupinstall 'Development Tools' \
-    && yum -y install git mercurial sudo dpkg nodejs nodejs-devel http-parser shadow-utils dpkg \
+    && yum -y install git mercurial sudo nodejs nodejs-devel http-parser shadow-utils \
     && yum -y install openssh-clients openssh-server curl ca-certificates \
     && yum -y install php71 php71-cli php71-gd php71-mbstring php71-intl php71-pecl-imagick php71-xml php71-common php71-pdo php71-mysqlnd php71-ldap php71-mcrypt php71-enchant php71-soap php71-fpm php71-json php71-process php71-dba php71-pecl-igbinary php71-bcmath
 
@@ -27,7 +27,7 @@ RUN curl -sSL https://pipelines.puppet.com/download/client | sh
 
 # Install gosu
 ENV GOSU_VERSION 1.11
-RUN sudo curl -o /bin/gosu -sSL "https://github.com/tianon/gosu/releases/download/1.11/gosu-$(dpkg --print-architecture | awk -F- '{ print $NF }')" \
+RUN sudo curl -o /bin/gosu -sSL "https://github.com/tianon/gosu/releases/download/1.11/gosu-amd64" \
      && sudo chmod +x /bin/gosu
 
 # Install node version manager as distelli user
