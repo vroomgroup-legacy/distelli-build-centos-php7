@@ -4,8 +4,11 @@ FROM amazonlinux:latest
 # Run as root
 USER root
 
+# Install Shadow Utils for creating user
+RUN yum -y install shadow-utils
+
 # Create Distelli user
-RUN /usr/sbin/adduser -ms /bin/bash distelli 
+RUN /usr/sbin/useradd -ms /bin/bash distelli 
 
 # Set /home/distelli as the working directory
 WORKDIR /home/distelli
