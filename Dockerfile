@@ -27,7 +27,7 @@ RUN curl -sSL https://pipelines.puppet.com/download/client | sh
 
 # Install gosu
 ENV GOSU_VERSION 1.11
-RUN sudo curl -o /bin/gosu -sSL "https://github.com/tianon/gosu/releases/download/1.11/gosu-$(dpkg --print-architecture | awk -F- '{ print $NF }')"; \
+RUN sudo curl -o /bin/gosu -sSL "https://github.com/tianon/gosu/releases/download/1.11/gosu-$(dpkg --print-architecture | awk -F- '{ print $NF }')" \
      && sudo chmod +x /bin/gosu
 
 # Install node version manager as distelli user
