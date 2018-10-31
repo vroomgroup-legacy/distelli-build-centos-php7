@@ -5,7 +5,7 @@ FROM amazonlinux:latest
 USER root
 
 # Create Distelli user
-RUN /usr/sbin/useradd -ms /bin/bash distelli 
+RUN /usr/sbin/adduser -ms /bin/bash distelli 
 
 # Set /home/distelli as the working directory
 WORKDIR /home/distelli
